@@ -14,7 +14,7 @@
       github.user = "kaiserkarel";
       gpg.format = "ssh";
       init.defaultBranch = "main";
-
+      push.autoSetupRemote = true;
       "url \"ssh://git@github.com/\"".insteadOf = "https://github.com/";
     };
   };

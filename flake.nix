@@ -29,6 +29,8 @@
               ./hardware-configuration.nix
               ./modules/openssh.nix
               ./modules/nix.nix
+              ./modules/postgres.nix
+
               home-manager.nixosModules.home-manager
               {
                 home-manager = {
@@ -37,6 +39,9 @@
                   users.k = {
                     home.stateVersion = "23.05";
                     imports = [
+                      ./modules/gtk.nix
+
+
                       ./modules/home/vscode.nix
                       ./modules/home/git.nix
                       ./modules/home/ssh.nix

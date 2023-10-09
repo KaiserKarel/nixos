@@ -83,12 +83,13 @@
   users.users.k = {
     isNormalUser = true;
     description = "k";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       google-chrome
-      vscode  
+      vscode
       element-desktop
       signal-desktop
+      telegram-desktop
     ];
   };
 
@@ -108,7 +109,12 @@
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
+    arion
+    nix-prefetch-docker
+    htop
   ];
+  virtualisation.docker.enable = true;
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
