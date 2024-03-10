@@ -52,10 +52,13 @@ with lib;
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.users.alice = {
-  #   isNormalUser = true;
-  #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  # };
+  users.users.k = {
+    isNormalUser = true;
+    description = "k";
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    packages = with pkgs; [
+    ];
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
