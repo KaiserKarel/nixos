@@ -18,15 +18,16 @@
     };
 
     sops-nix.url = "github:Mic92/sops-nix";
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
-  outputs = { nixpkgs, treefmt-nix, flake-parts, home-manager, sops-nix, ... }@inputs:
+  outputs = { nixpkgs, treefmt-nix, flake-parts, home-manager, sops-nix, vscode-server, ... }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       flake = {
-        nixosConfigurations = import ./machines/machines.nix { inherit nixpkgs home-manager; };
+        nixosConfigurations = import ./machines/machines.nix { inherit nixpkgs home-manager vscode-server; };
       };
       systems =
-        [ "x86_64-linux" ];
+        [ "x86_64-linux" "aarch64-linux" ];
       imports = [
         treefmt-nix.flakeModule
       ];

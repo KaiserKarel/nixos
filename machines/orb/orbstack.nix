@@ -4,11 +4,13 @@ with lib;
 
 {
   # sudoers
-  security.sudo.extraRules= [
-    { users = [ "k" ];
+  security.sudo.extraRules = [
+    {
+      users = [ "k" ];
       commands = [
-        { command = "ALL";
-          options= [ "NOPASSWD" ];
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ];
         }
       ];
     }
@@ -38,7 +40,7 @@ with lib;
   services.openssh.enable = false;
 
   # systemd
-systemd.services."systemd-oomd".serviceConfig.WatchdogSec = 0;
+  systemd.services."systemd-oomd".serviceConfig.WatchdogSec = 0;
   systemd.services."systemd-resolved".serviceConfig.WatchdogSec = 0;
   systemd.services."systemd-userdbd".serviceConfig.WatchdogSec = 0;
   systemd.services."systemd-udevd".serviceConfig.WatchdogSec = 0;
